@@ -6,7 +6,7 @@ pub struct HostExportedData;
 
 // Implementation block for "services" provided by the host
 impl host_exported::HostExported for HostExportedData {
-    fn echo(&mut self) {
+    fn hello(&mut self) {
         println!("Hello from wasm-module!");
     }
 }
