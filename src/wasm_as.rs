@@ -8,14 +8,14 @@ use wai_bindgen_wasmer::wasmer::{imports, Module, Store};
 // What is used from wasm modules
 // auto generate bindings at build time
 // /!\ this means that one MUST know the Interface at build time
-wai_bindgen_wasmer::import!("../wasm-module/tmp/wasm-mod-exported.wai");
+wai_bindgen_wasmer::import!("../../wit-mem-transform/as_sc/build/wasm-interface.wai");
 
-type WasmModule = wasm_mod_exported::WasmModExported;
+type WasmModule = wasm_interface::WasmInterface;
 
 pub fn init_runtime() -> (Store, WasmModule) {
     let wasm_bytes = include_bytes!(concat!(
         env!("CARGO_MANIFEST_DIR"),
-        "/../wasm-module/tmp/wasm_module.wasm"
+        "/../../wit-mem-transform/as_sc/build/jf.wasm"
     ));
 
     let mut store = Store::default();

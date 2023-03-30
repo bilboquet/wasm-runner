@@ -3,8 +3,16 @@ name = "host"
 version = "0.1.0"
 edition = "2021"
 
+[features]
+# by default enable all tests so rust-analyzer is happy
+# for example: use `cargo test --no-default-features --features="AS"` to cherry pick only AS
+default = ["rust", "AS"]
+rust=[]
+AS=[]
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+# anyhow is only needed while debuging with wai-bingen procmacro expanded into the code
 anyhow = "1.0.70"
 wai-bindgen-wasmer = "0.2.3"
