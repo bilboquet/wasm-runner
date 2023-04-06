@@ -14,12 +14,16 @@ impl env::Env for EnvData {
         println!("one_arg called with arg: {}", arg);
     }
 
-    fn two_arg(&mut self, arg1: u32, arg2: u32) {
+    fn two_args(&mut self, arg1: u32, arg2: u32) {
         println!("two_arg called! arg1: {} arg2: {}", arg1, arg2);
     }
 
     fn one_string_arg(&mut self, msg: &str) {
         println!("one_string_arg called with: \"{}\"!", msg);
+    }
+
+    fn one_array_arg(&mut self, array: &[u8]) {
+        println!("one_array_arg called with: \"{:?}\"!", array);
     }
 
     fn abort(&mut self, msg: &str, a: u32, b: u32) {
